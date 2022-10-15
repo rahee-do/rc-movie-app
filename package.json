@@ -1,5 +1,5 @@
 {
-  "name": "my-react-app",
+  "name": "movie_app_2022",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -12,10 +12,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "my-react-app/node_modules/.bin/react-scripts start",
-    "build": "my-react-app/node_modules/.bin/react-scripts build",
-    "test": "my-react-app/node_modules/.bin/react-scripts test",
-    "eject": "my-react-app/node_modules/.bin/react-scripts eject"
+    "start": "react-scripts start",
+    "build": "react-scripts build"
   },
   "eslintConfig": {
     "extends": [
