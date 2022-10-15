@@ -1,23 +1,53 @@
-function Movie({title}) {
-  console.log(title)
+const foodILike = [
+    {
+        id: 1,
+        name: "Kimchi",
+        image: "https://contents.sixshop.com/thumbnails/uploadedFiles/72878/product/image_1540176020065_2500.jpg"
+    },
+    {
+        id: 2,
+        name: "Samgiopsal",
+        image: "https://mp-seoul-image-production-s3.mangoplate.com/mango_pick/uker6u9xhkr1m8.jpg"
+    },
+    {
+        id: 3,
+        name: "Bibimbab",
+        image: "https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/S9Y/image/76pr0EfQi6R21MMIyzefN9hiqIU.jpg"
+    },
+    {
+        id: 4,
+        name: "Doncasu",
+        image: "https://pbs.twimg.com/media/COWKAP5UsAEqtuH.jpg"
+    },
+    {
+        id: 5,
+        name: "Kimbap",
+        image: "https://recipe1.ezmember.co.kr/cache/recipe/2018/12/14/f609b820823418706dca1df13c43def01.jpg"
+    }
+
+];
+function Food(props) {
   return (
-      title === "happy" ? <h3>I love Movie!</h3> : <h3>I hate Movie!</h3>
+      <div>
+          <h3>I like {props.name} !!!</h3>
+          <img style={{width: "200px"}} src={props.picture} alt={props.name}/>
+      </div>
   )
 }
-function Food(props) {
-  console.log(props)
-  return props.favorite === "kimchi" ? <h3>I like kimchi and {props.like} !!!</h3> : <h3>I like {props.like} !!!</h3>
-}
+function renderFood(dish) {
+    return <Food name={dish.name} picture={dish.image} />
+
+};
 function App() {
   return (
     <div>
-      <h1>Hello!!!!</h1>
-      <Movie title={"happy"}/>
-      <Food like="bulgogi" favorite="kimchi" />
-      <Food like="ramen" />
-      <Food like="samgiopsal" />
-      <Food like="chukumi" />
-      <Food like="kimbap" />
+      {foodILike.map(function(dish, index){
+          return <Food key={dish.id} name={dish.name + " ♥️"} picture={dish.image}/>
+      })}
+      {/*<div>
+          {console.log(foodILike.map(renderFood))}
+          {foodILike.map(renderFood)}
+      </div>*/}
     </div>
   );
 }
