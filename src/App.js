@@ -1,42 +1,22 @@
 import React from "react";
 // class component
 class App extends React.Component{
-    constructor(prop) {
-        super(prop);
-        console.log("hello");
-    }
     // class component 의 data 를 넣을 공간 (data is the will change.)
     state = {
-        count: 0
+        isLoading: true,
+        movies: []
     };
-
-    add = () => {
-        this.setState(current => ({count: current.count + 1}));
-    };
-    minus = () => {
-        this.setState(current => ({count: current.count - 1}));
-    };
-
     componentDidMount() {
-        console.log("component rendered");
-    }
-    componentDidUpdate() {
-        console.log("I just updated");
-    }
-    componentWillUnmount() {
-        console.log("Goodbye cruel world");
-    }
+        setTimeout(() => {
+           this.setState({ isLoading: !this.state.isLoading, book: true })
+        }, 3000);
+    };
 
-    // class component 는 return 이 아닌 render 함수를 실행시킨다.
     render() {
-        console.log("I'm rendering");
+        console.log("calss의 this.state를 사용하기 싫다면 ES6 문법을 사용하면 된다.");
+        const {isLoading} = this.state;
         return (
-            <div>
-                <h1>I'm a class component</h1>
-                <h2>The number is : {this.state.count}</h2>
-                <button onClick={this.add}>Add</button>
-                <button onClick={this.minus}>Minus</button>
-            </div>
+            <div>{isLoading ? "Loading..." : "We are ready"}</div>
         );
     }
 }
