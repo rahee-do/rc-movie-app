@@ -1,53 +1,30 @@
 import React from "react";
-import axios from "axios";
-import Movie from "./Movie";
-import "./App.css";
-import "./Movie.css";
+import {HashRouter, Route} from "react-router-dom";
+import Home from "./routes/Home";
+import About from "./routes/About";
 
-// class component
-class App extends React.Component{
-    // class component 의 data 를 넣을 공간 (data is the will change.)
-    state = {
-        isLoading: true,
-        movies: []
-    };
-    getMovies = async () => {
-        // console.log(ES6 문법 : 구조분해?);
-        const {data: {data: {movies}}} = await axios.get("https://yts-proxy.now.sh/list_movies.json?sort_by=rating");
-        console.log(movies);
-        this.setState({movies, isLoading: false});
-    }
-    componentDidMount() {
-        this.getMovies();
-    };
-
-    render() {
-        // console.log("calss의 this.state를 사용하기 싫다면 ES6 문법을 사용하면 된다.");
-        const {isLoading, movies} = this.state;
-        return (
-            <section className="container">
-                {isLoading
-                    ? (
-                        <div className="loader">
-                            <span className="loader__text">Loading...</span>
-                        </div>
-                    ) : (
-                    <div className="movies">
-                        {movies.map(movie => (
-                            <Movie
-                                key={movie.id}
-                                id={movie.id}
-                                year={movie.year}
-                                title={movie.title}
-                                summary={movie.summary}
-                                poster={movie.medium_cover_image}
-                                genres={movie.genres}
-                            />
-                        ))}
-                    </div>
-                )}
-            </section>
-        );
-    }
+function App() {
+    return (
+        <HashRouter>
+            <Route path="/home" exact={true}>
+                <h1>Home</h1>
+            </Route>
+            <Route path="/home/introduction">
+                <h1>Introduction</h1>
+            </Route>
+            <Route path="/about/test">
+                <h1>About Test</h1>
+            </Route>
+            {/*
+            router 동작 원리
+            2개의 router를 하기 때문에 /about일 때 /도 같이 보여줘서 두 개의 컴포넌트가 보여지는 것이다.
+            exact={true}를 사용하여 해결한다.
+            exact는 해당 url과 일치하지 않으면 router 하지 않는다.
+            */}
+            <Route path="/" exact={true} component={Home} />
+            <Route path="/about" component={About} />
+        </HashRouter>
+    );
 }
+
 export default App;
