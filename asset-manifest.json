@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/rc-movie-web-service/static/css/main.463a7a98.css",
+    "main.js": "/rc-movie-web-service/static/js/main.23231afe.js",
+    "index.html": "/rc-movie-web-service/index.html",
+    "main.463a7a98.css.map": "/rc-movie-web-service/static/css/main.463a7a98.css.map",
+    "main.23231afe.js.map": "/rc-movie-web-service/static/js/main.23231afe.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.463a7a98.css",
+    "static/js/main.23231afe.js"
+  ]
+}
