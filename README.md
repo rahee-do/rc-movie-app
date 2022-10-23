@@ -5,3 +5,6 @@ hello
 
 # [YTS Proxy](https://github.com/serranoarevalo/yts-proxy) 
 For the endpoint /list_movies.json use https://yts-proxy.now.sh/list_movies.json
+
+# Deploying to Github Pages
+[rc-movie-app](https://rahee-do.github.io/rc-movie-app)
