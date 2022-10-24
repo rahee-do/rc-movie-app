@@ -2,6 +2,7 @@ import React from "react";
 import {HashRouter, Route} from "react-router-dom";
 import Home from "./routes/Home";
 import About from "./routes/About";
+import Navigation from './components/Navigation'
 
 function App() {
     return (
@@ -21,6 +22,7 @@ function App() {
             exact={true}를 사용하여 해결한다.
             exact는 해당 url과 일치하지 않으면 router 하지 않는다.
             */}
+            <Navigation />
             <Route path="/" exact={true} component={Home} />
             <Route path="/about" component={About} />
         </HashRouter>
