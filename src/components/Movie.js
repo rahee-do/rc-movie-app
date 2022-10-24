@@ -11,7 +11,7 @@ function Movie({id, year, title, summary, poster, genres}) {
                 <div className="movie__data">
                     <h3 className="movie__title">
                         <Link to={{
-                            pathname: "/movie-detail",
+                            pathname: `/movie/${id}`,
                             state: {
                                 year,
                                 title,
